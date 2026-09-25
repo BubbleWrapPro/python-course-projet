@@ -1,6 +1,5 @@
-import pandas as pd
-
-# Returns a DataFrame
-potions_data = pd.read_excel("./data/potions-craft.xlsx", sheet_name="potions")
-
-print(potions_data.values)
+import streamlit as st
+from graphs.histogramme import create_histogram
+st.set_page_config(page_title="Potion craft", layout="wide")
+st.title("Potion craft")
+st.plotly_chart(create_histogram(), use_container_width=True)
