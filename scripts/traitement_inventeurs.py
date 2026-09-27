@@ -76,6 +76,7 @@ def generate_network_csv_files():
             "primary_magic": primary_magic_type,
             "magic_types_count": magic_type_count,
         }
+        # Add inventor node to the network
         network_nodes.append({
             "id": inventor_node_id,
             "label": pseudo,

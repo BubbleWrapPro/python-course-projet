@@ -264,7 +264,7 @@ def build_inventor_magic_network():
             mode='markers+text',
             marker=dict(size=node_sizes, color=colors, symbol=marker_symbols, line=dict(width=2, color='#111')),
             text=labels,
-            textposition='top center',
+            textposition='middle center',
             textfont=dict(color='#111111', size=12, family='Arial'),
             hoverinfo='text',
             hovertext=hover_texts,

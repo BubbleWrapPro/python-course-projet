@@ -6,10 +6,12 @@ from graphs.histogramme import create_histogram
 from graphs.heatmap import create_heatmap
 from graphs.kiviat import create_kiviat
 from graphs.network import create_network_graph
+from graphs.sunburst import create_sunburst
 from scripts.anomalies import SHEET_NAMES, detect_anomalies
 from scripts.traitement_histogramme import prepare_histogram
 from scripts.traitement_heatmap import prepare_heatmap_data
 from scripts.traitement_inventeurs import generate_network_csv_files
+from scripts.traitement_sunburst import prepare_sunburst_data
 
 st.set_page_config(page_title="Potion craft", layout="wide")
 st.title("Potion craft")
@@ -22,6 +24,7 @@ REQUIRED_CSVS = (
     DATA_DIR / "ingredients_cooccurrence.csv",
     DATA_DIR / "network_nodes.csv",
     DATA_DIR / "network_edges.csv",
+    DATA_DIR / "sunburst_potions.csv",
 )
 
 # Generate the CSV files used by the charts before loading them.
@@ -30,6 +33,7 @@ try:
     prepare_histogram()
     prepare_heatmap_data()
     generate_network_csv_files()
+    prepare_sunburst_data()
 except (BadZipFile, IndexError, KeyError, OSError, TypeError, ValueError) as error:
     # If CSV generation fails, check whether the required files already exist.
     missing_csvs = [path.name for path in REQUIRED_CSVS if not path.is_file()]
@@ -66,6 +70,9 @@ if can_display_charts:
 
     # Display the Kiviat chart.
     st.plotly_chart(create_kiviat(), width="stretch")
+
+    # Display the three-level potion sunburst.
+    st.plotly_chart(create_sunburst(), width="stretch")
 
     # Display the network graph (without filters).
     fig_network = create_network_graph()

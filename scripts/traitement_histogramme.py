@@ -6,6 +6,9 @@ OUTPUT = Path("data") / "processed_csv" / "potions_plus_rentables.csv"
 OUTPUT_NB_POTIONS = Path("data") / "processed_csv" / "nb_potions_par_competence.csv"
 
 def load_tables():
+    """
+    Loads the necessary tables from the source Excel file and returns them as pandas DataFrames.
+    """
     potions = pd.read_excel(SOURCE, sheet_name="potions")
     ingredients = pd.read_excel(SOURCE, sheet_name="liste-ingredients")
     diluants = pd.read_excel(SOURCE, sheet_name="prix-diluants")
@@ -30,17 +33,21 @@ def build_unit_map(units):
 
 
 def compute_cost(recipe, ingredients, unit_map, diluants):
+    """
+    Computes the total cost of producing a potion based on its recipe, ingredient prices, and diluant price.
+    Returns None if any ingredient is missing from the ingredients DataFrame.
+    """
     total_cost = 0
 
     for i in range(1, 5):
         ingredient_name = recipe[f"ingredient_{i}"]
+        # Check if the ingredient name is missing
         if pd.isna(ingredient_name):
             continue
-
+        # Check if the ingredient exists in the ingredients DataFrame
         if ingredient_name not in ingredients.index:
-            print(f"Excluded: {recipe['potion']} -> missing ingredient {ingredient_name}")
             return None
-        
+        # Get the ingredient row from the ingredients DataFrame
         ingredient_row = ingredients.loc[ingredient_name]
 
         quantity = recipe[f"quantite_{i}"]
@@ -50,6 +57,7 @@ def compute_cost(recipe, ingredients, unit_map, diluants):
         price_per_pinch = ingredient_row["prix"] / ingredient_row["poids_pincee"]
         total_cost += converted_quantity * price_per_pinch
 
+    # Add the cost of the diluant
     diluant_price = diluants[diluants["diluant"] == recipe["diluant"]].iloc[0]["prix"]
     total_cost += diluant_price
 
@@ -73,14 +81,19 @@ def count_potions(potions, competences):
     return nb_potions_by_competence
 
 def prepare_histogram():
+    """
+    Prepares the data for the histogram of the most profitable potions and saves it to a CSV file.
+    """
     potions, ingredients, diluants, units, magic, competences = load_tables()
 
+    # Set the index for ingredients, magic, and competences DataFrames for easier lookup
     unit_map = build_unit_map(units)
     ingredients = ingredients.set_index("ingredients")
     magic = magic.set_index("potion")["type-magie-potion"]
     competences = competences.set_index("type_de_magie")["competences"]
     nb_potions = count_potions(magic, competences)
 
+    # Make sure to save the number of potions per competence to a CSV file
     potions_df = pd.DataFrame(list(nb_potions.items()), columns=["competences", "nombre_de_potions"])
     potions_df.to_csv(OUTPUT_NB_POTIONS, index=False)
     print("Saved: " + str(OUTPUT_NB_POTIONS))
@@ -88,6 +101,7 @@ def prepare_histogram():
 
     valid_rows = []
 
+    # Use the previous function to compute the cost and benefit for each potion, and store the valid results.
     for _, recipe in potions.iterrows():
         cost = compute_cost(recipe, ingredients, unit_map, diluants)
         if cost is None:
@@ -106,6 +120,7 @@ def prepare_histogram():
             "competences": competence_potion,
         })
 
+    # Create a DataFrame from the valid rows, sort by benefit, and save the top 10 most profitable potions to a CSV file.
     df = pd.DataFrame(valid_rows)
     df = df.sort_values("benefice", ascending=False).head(10).round(2)
     df.to_csv(OUTPUT, index=False)

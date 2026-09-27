@@ -1,0 +1,61 @@
+type_magie,competence,potion,poids
+Bleue,Bienveillance,Huile d'arme magique,1
+Bleue,Bienveillance,Potion de délivrance de la paralysie,1
+Bleue,Bienveillance,Potion de flou,1
+Bleue,Bienveillance,Potion de lévitation,1
+Bleue,Bienveillance,Potion de morsure magique,1
+Bleue,Bienveillance,Potion de pattes d'araignée,1
+Bleue,Bienveillance,Potion de protection contre la loi,1
+Bleue,Sorcellerie,Potion de ralentissement du poison,1
+Bleue,Sorcellerie,Potion de résistances aux énergies destructives,1
+Bleue,Sorcellerie,Potion de saut,1
+Bleue,Sorcellerie,Potion de vision dans le noir,1
+Bleue,Sorcellerie,Potion d'endurance aux énergies destructives,1
+Bleue,Sorcellerie,Potion de clairvoyance,1
+Bleue,Sorcellerie,Potion de mémoire parfaite,1
+Blanche,Bienveillance,Huile de bénédiction d'arme,1
+Blanche,Bienveillance,Huile de pierre magique,1
+Blanche,Bienveillance,Huile de ténèbres,1
+Blanche,Bienveillance,Potion d'aide,1
+Blanche,Bienveillance,Potion d'armure de mage,1
+Blanche,Soin,Potion de restauration partielle,1
+Blanche,Soin,Potion de sanctuaire,1
+Blanche,Soin,Potion de splendeur de l'aigle,1
+Blanche,Soin,Potion de bénédiction majeure,1
+Blanche,Soin,Potion de purification,1
+Noire,Diabolisme,Huile de gourdin magique,1
+Noire,Diabolisme,Potion d'alignement indétectable,1
+Noire,Diabolisme,Potion de détection faussée,1
+Noire,Diabolisme,Potion de protection contre le bien,1
+Noire,Diabolisme,Potion de protection contre le mal,1
+Noire,Sorcellerie,Potion de protection contre les projectiles,1
+Noire,Sorcellerie,Potion de ruse du renard,1
+Noire,Sorcellerie,Potion de sagesse du hibou,1
+Noire,Sorcellerie,Potion de nécrose,1
+Noire,Sorcellerie,Potion de contrôle des morts-vivants,1
+Rouge,Charisme,Potion d'agrandissement,1
+Rouge,Charisme,Potion de bouclier de la foi,1
+Rouge,Charisme,Potion de force de taureau,1
+Rouge,Charisme,Potion de protection contre le chaos,1
+Rouge,Diabolisme,Potion de rapetissement,1
+Rouge,Diabolisme,Potion de regain d'assurance,1
+Rouge,Diabolisme,Potion de soins modérés,1
+Rouge,Invocateur,Potion de langue argentée,1
+Rouge,Invocateur,Potion de pacte infernal,1
+Rouge,Invocateur,Potion d'invocation mineure,1
+Verte,Botanique,Potion de grâce féline,1
+Verte,Botanique,Potion de peau d'écorce,1
+Verte,Botanique,Potion de soins légers,1
+Verte,Botanique,Potion d'endurance de l'ours,1
+Verte,Soin,Potion de croissance végétale,1
+Verte,Soin,Potion de communion avec la nature,1
+Verte,Soin,Élixir de sève ancienne,1
+Verte,Soin,Potion de guérison des plaies,1
+Pourpre,Disparition,Potion de passage sans traces,1
+Pourpre,Disparition,Potion d'invisibilité pour les animaux,1
+Pourpre,Disparition,Potion d'invisibilité pour les morts-vivants,1
+Pourpre,Disparition,Potion d'invisibilité,1
+Pourpre,Disparition,Potion de disparition,1
+Pourpre,Disparition,Potion d'ombre portée,1
+Pourpre,Disparition,Potion de pas de brume,1
+Pourpre,Disparition,Élixir d'effacement,1
