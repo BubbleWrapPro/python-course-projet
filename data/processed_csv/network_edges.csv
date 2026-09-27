@@ -15,13 +15,13 @@ inventeur::Merlin,potion::Huile de gourdin magique,created
 inventeur::Gandalf,potion::Huile de pierre magique,created
 inventeur::Gandalf,potion::Huile de ténèbres,created
 inventeur::Panoramix,potion::Potion d'agrandissement,created
-lignee::Sans lignée,inventeur::Unknown,has_inventor
-inventeur::Unknown,potion::Potion d'aide,created
+lignee::Sans lignée,inventeur::Inconnu,has_inventor
+inventeur::Inconnu,potion::Potion d'aide,created
 inventeur::Tom,potion::Potion d'alignement indétectable,created
 inventeur::Gandalf,potion::Potion d'armure de mage,created
 inventeur::Panoramix,potion::Potion de bouclier de la foi,created
 inventeur::Severus,potion::Potion de délivrance de la paralysie,created
-inventeur::Unknown,potion::Potion de détection faussée,created
+inventeur::Inconnu,potion::Potion de détection faussée,created
 inventeur::Severus,potion::Potion de flou,created
 inventeur::Tom,potion::Potion de force de taureau,created
 inventeur::Yennefer,potion::Potion de grâce féline,created
@@ -31,7 +31,7 @@ inventeur::Morgane,potion::Potion de passage sans traces,created
 inventeur::Tom,potion::Potion de pattes d'araignée,created
 inventeur::Yennefer,potion::Potion de peau d'écorce,created
 inventeur::Tom,potion::Potion de protection contre la loi,created
-inventeur::Unknown,potion::Potion de protection contre le bien,created
+inventeur::Inconnu,potion::Potion de protection contre le bien,created
 inventeur::Panoramix,potion::Potion de protection contre le chaos,created
 inventeur::Elias,potion::Potion de protection contre le mal,created
 inventeur::Merlin,potion::Potion de protection contre les projectiles,created
@@ -40,7 +40,7 @@ inventeur::Panoramix,potion::Potion de rapetissement,created
 inventeur::Dargor,potion::Potion de regain d'assurance,created
 inventeur::Severus,potion::Potion de résistances aux énergies destructives,created
 inventeur::Gandalf,potion::Potion de restauration partielle,created
-inventeur::Unknown,potion::Potion de ruse du renard,created
+inventeur::Inconnu,potion::Potion de ruse du renard,created
 inventeur::Elias,potion::Potion de sagesse du hibou,created
 inventeur::Stefen,potion::Potion de sanctuaire,created
 inventeur::Severus,potion::Potion de saut,created
@@ -48,7 +48,7 @@ inventeur::Yennefer,potion::Potion de soins légers,created
 inventeur::Panoramix,potion::Potion de soins modérés,created
 inventeur::Gandalf,potion::Potion de splendeur de l'aigle,created
 inventeur::Tom,potion::Potion de vision dans le noir,created
-inventeur::Unknown,potion::Potion d'endurance aux énergies destructives,created
+inventeur::Inconnu,potion::Potion d'endurance aux énergies destructives,created
 inventeur::Severus,potion::Potion d'endurance de l'ours,created
 inventeur::Morgane,potion::Potion d'invisibilité pour les animaux,created
 inventeur::Morgane,potion::Potion d'invisibilité pour les morts-vivants,created
@@ -56,17 +56,17 @@ inventeur::Morgane,potion::Potion d'invisibilité,created
 inventeur::Morgane,potion::Potion de disparition,created
 inventeur::Morgane,potion::Potion d'ombre portée,created
 inventeur::Morgane,potion::Potion de pas de brume,created
-inventeur::Unknown,potion::Élixir d'effacement,created
+inventeur::Inconnu,potion::Élixir d'effacement,created
 inventeur::Yennefer,potion::Potion de croissance végétale,created
 inventeur::Yennefer,potion::Potion de communion avec la nature,created
 inventeur::Yennefer,potion::Élixir de sève ancienne,created
-inventeur::Unknown,potion::Potion de guérison des plaies,created
+inventeur::Inconnu,potion::Potion de guérison des plaies,created
 inventeur::Panoramix,potion::Potion de langue argentée,created
 inventeur::Stefen,potion::Potion de pacte infernal,created
 inventeur::Panoramix,potion::Potion d'invocation mineure,created
 inventeur::Elias,potion::Potion de nécrose,created
 inventeur::Tom,potion::Potion de contrôle des morts-vivants,created
 inventeur::Gandalf,potion::Potion de bénédiction majeure,created
-inventeur::Unknown,potion::Potion de purification,created
+inventeur::Inconnu,potion::Potion de purification,created
 inventeur::Severus,potion::Potion de clairvoyance,created
 inventeur::Dargor,potion::Potion de mémoire parfaite,created

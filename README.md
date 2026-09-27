@@ -23,3 +23,9 @@ source .venv/bin/activate
 ```
 pip install -r requirements.txt
 ```
+
+## Lancer l'application (en local)
+
+```
+streamlit run main.py
+```

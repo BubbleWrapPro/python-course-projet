@@ -1,8 +1,9 @@
 import pandas as pd
 from pathlib import Path
 
-SOURCE = Path("data") / "potions-craft.xlsx"
-OUTPUT = Path("data") / "processed_csv" / "potions_plus_rentables.csv"
+ROOT = Path(__file__).resolve().parents[1]
+SOURCE = ROOT / "data" / "potions-craft.xlsx"
+OUTPUT = ROOT / "data" / "processed_csv" / "potions_plus_rentables.csv"
 
 def load_tables():
     potions = pd.read_excel(SOURCE, sheet_name="potions")
@@ -81,6 +82,7 @@ def prepare_histogram():
 
     df = pd.DataFrame(valid_rows)
     df = df.sort_values("benefice", ascending=False).head(10).round(2)
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(OUTPUT, index=False)
 
     print("Saved: " + str(OUTPUT))
