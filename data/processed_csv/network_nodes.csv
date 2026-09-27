@@ -1,0 +1,81 @@
+id,label,type,group,magic_types_count,primary_magic,parent
+lignee::Black,Black,lignee,Black,,,
+lignee::De Kamelott,De Kamelott,lignee,De Kamelott,,,
+lignee::De Kelliwich,De Kelliwich,lignee,De Kelliwich,,,
+lignee::De Vengerberg,De Vengerberg,lignee,De Vengerberg,,,
+lignee::Jedusor,Jedusor,lignee,Jedusor,,,
+lignee::Le Fay,Le Fay,lignee,Le Fay,,,
+lignee::Rogue,Rogue,lignee,Rogue,,,
+lignee::Strange,Strange,lignee,Strange,,,
+lignee::Sans lignée,Sans lignée,lignee,Sans lignée,,,
+inventeur::Dargor,Dargor,inventeur,Black,1,Bleue,lignee::Black
+inventeur::Elias,Elias,inventeur,De Kelliwich,1,Verte,lignee::De Kelliwich
+inventeur::Gandalf,Gandalf,inventeur,Rogue,2,Rouge,lignee::Rogue
+inventeur::Merlin,Merlin,inventeur,De Kamelott,2,Bleue,lignee::De Kamelott
+inventeur::Panoramix,Panoramix,inventeur,Black,2,Verte,lignee::Black
+inventeur::Severus,Severus,inventeur,Rogue,2,Noire,lignee::Rogue
+inventeur::Stefen,Stefen,inventeur,Strange,3,Noire,lignee::Strange
+inventeur::Tom,Tom,inventeur,Jedusor,3,Bleue,lignee::Jedusor
+inventeur::Morgane,Morgane,inventeur,Le Fay,2,Pourpre,lignee::Le Fay
+inventeur::Yennefer,Yennefer,inventeur,De Vengerberg,2,Verte,lignee::De Vengerberg
+potion::Huile d'arme magique,Huile d'arme magique,potion,Bleue,,Bleue,inventeur::Dargor
+potion::Huile de bénédiction d'arme,Huile de bénédiction d'arme,potion,Blanche,,Blanche,inventeur::Stefen
+potion::Huile de gourdin magique,Huile de gourdin magique,potion,Noire,,Noire,inventeur::Merlin
+potion::Huile de pierre magique,Huile de pierre magique,potion,Blanche,,Blanche,inventeur::Gandalf
+potion::Huile de ténèbres,Huile de ténèbres,potion,Blanche,,Blanche,inventeur::Gandalf
+potion::Potion d'agrandissement,Potion d'agrandissement,potion,Rouge,,Rouge,inventeur::Panoramix
+inventeur::Unknown,Unknown,inventeur,Sans lignée,,,lignee::Sans lignée
+potion::Potion d'aide,Potion d'aide,potion,Blanche,,Blanche,inventeur::Unknown
+potion::Potion d'alignement indétectable,Potion d'alignement indétectable,potion,Noire,,Noire,inventeur::Tom
+potion::Potion d'armure de mage,Potion d'armure de mage,potion,Blanche,,Blanche,inventeur::Gandalf
+potion::Potion de bouclier de la foi,Potion de bouclier de la foi,potion,Rouge,,Rouge,inventeur::Panoramix
+potion::Potion de délivrance de la paralysie,Potion de délivrance de la paralysie,potion,Bleue,,Bleue,inventeur::Severus
+potion::Potion de détection faussée,Potion de détection faussée,potion,Noire,,Noire,inventeur::Unknown
+potion::Potion de flou,Potion de flou,potion,Bleue,,Bleue,inventeur::Severus
+potion::Potion de force de taureau,Potion de force de taureau,potion,Rouge,,Rouge,inventeur::Tom
+potion::Potion de grâce féline,Potion de grâce féline,potion,Verte,,Verte,inventeur::Yennefer
+potion::Potion de lévitation,Potion de lévitation,potion,Bleue,,Bleue,inventeur::Severus
+potion::Potion de morsure magique,Potion de morsure magique,potion,Bleue,,Bleue,inventeur::Tom
+potion::Potion de passage sans traces,Potion de passage sans traces,potion,Pourpre,,Pourpre,inventeur::Morgane
+potion::Potion de pattes d'araignée,Potion de pattes d'araignée,potion,Bleue,,Bleue,inventeur::Tom
+potion::Potion de peau d'écorce,Potion de peau d'écorce,potion,Verte,,Verte,inventeur::Yennefer
+potion::Potion de protection contre la loi,Potion de protection contre la loi,potion,Bleue,,Bleue,inventeur::Tom
+potion::Potion de protection contre le bien,Potion de protection contre le bien,potion,Noire,,Noire,inventeur::Unknown
+potion::Potion de protection contre le chaos,Potion de protection contre le chaos,potion,Rouge,,Rouge,inventeur::Panoramix
+potion::Potion de protection contre le mal,Potion de protection contre le mal,potion,Noire,,Noire,inventeur::Elias
+potion::Potion de protection contre les projectiles,Potion de protection contre les projectiles,potion,Noire,,Noire,inventeur::Merlin
+potion::Potion de ralentissement du poison,Potion de ralentissement du poison,potion,Bleue,,Bleue,inventeur::Severus
+potion::Potion de rapetissement,Potion de rapetissement,potion,Rouge,,Rouge,inventeur::Panoramix
+potion::Potion de regain d'assurance,Potion de regain d'assurance,potion,Rouge,,Rouge,inventeur::Dargor
+potion::Potion de résistances aux énergies destructives,Potion de résistances aux énergies destructives,potion,Bleue,,Bleue,inventeur::Severus
+potion::Potion de restauration partielle,Potion de restauration partielle,potion,Blanche,,Blanche,inventeur::Gandalf
+potion::Potion de ruse du renard,Potion de ruse du renard,potion,Noire,,Noire,inventeur::Unknown
+potion::Potion de sagesse du hibou,Potion de sagesse du hibou,potion,Noire,,Noire,inventeur::Elias
+potion::Potion de sanctuaire,Potion de sanctuaire,potion,Blanche,,Blanche,inventeur::Stefen
+potion::Potion de saut,Potion de saut,potion,Bleue,,Bleue,inventeur::Severus
+potion::Potion de soins légers,Potion de soins légers,potion,Verte,,Verte,inventeur::Yennefer
+potion::Potion de soins modérés,Potion de soins modérés,potion,Rouge,,Rouge,inventeur::Panoramix
+potion::Potion de splendeur de l'aigle,Potion de splendeur de l'aigle,potion,Blanche,,Blanche,inventeur::Gandalf
+potion::Potion de vision dans le noir,Potion de vision dans le noir,potion,Bleue,,Bleue,inventeur::Tom
+potion::Potion d'endurance aux énergies destructives,Potion d'endurance aux énergies destructives,potion,Bleue,,Bleue,inventeur::Unknown
+potion::Potion d'endurance de l'ours,Potion d'endurance de l'ours,potion,Verte,,Verte,inventeur::Severus
+potion::Potion d'invisibilité pour les animaux,Potion d'invisibilité pour les animaux,potion,Pourpre,,Pourpre,inventeur::Morgane
+potion::Potion d'invisibilité pour les morts-vivants,Potion d'invisibilité pour les morts-vivants,potion,Pourpre,,Pourpre,inventeur::Morgane
+potion::Potion d'invisibilité,Potion d'invisibilité,potion,Pourpre,,Pourpre,inventeur::Morgane
+potion::Potion de disparition,Potion de disparition,potion,Pourpre,,Pourpre,inventeur::Morgane
+potion::Potion d'ombre portée,Potion d'ombre portée,potion,Pourpre,,Pourpre,inventeur::Morgane
+potion::Potion de pas de brume,Potion de pas de brume,potion,Pourpre,,Pourpre,inventeur::Morgane
+potion::Élixir d'effacement,Élixir d'effacement,potion,Pourpre,,Pourpre,inventeur::Unknown
+potion::Potion de croissance végétale,Potion de croissance végétale,potion,Verte,,Verte,inventeur::Yennefer
+potion::Potion de communion avec la nature,Potion de communion avec la nature,potion,Verte,,Verte,inventeur::Yennefer
+potion::Élixir de sève ancienne,Élixir de sève ancienne,potion,Verte,,Verte,inventeur::Yennefer
+potion::Potion de guérison des plaies,Potion de guérison des plaies,potion,Verte,,Verte,inventeur::Unknown
+potion::Potion de langue argentée,Potion de langue argentée,potion,Rouge,,Rouge,inventeur::Panoramix
+potion::Potion de pacte infernal,Potion de pacte infernal,potion,Rouge,,Rouge,inventeur::Stefen
+potion::Potion d'invocation mineure,Potion d'invocation mineure,potion,Rouge,,Rouge,inventeur::Panoramix
+potion::Potion de nécrose,Potion de nécrose,potion,Noire,,Noire,inventeur::Elias
+potion::Potion de contrôle des morts-vivants,Potion de contrôle des morts-vivants,potion,Noire,,Noire,inventeur::Tom
+potion::Potion de bénédiction majeure,Potion de bénédiction majeure,potion,Blanche,,Blanche,inventeur::Gandalf
+potion::Potion de purification,Potion de purification,potion,Blanche,,Blanche,inventeur::Unknown
+potion::Potion de clairvoyance,Potion de clairvoyance,potion,Bleue,,Bleue,inventeur::Severus
+potion::Potion de mémoire parfaite,Potion de mémoire parfaite,potion,Bleue,,Bleue,inventeur::Dargor
