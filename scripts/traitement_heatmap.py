@@ -48,7 +48,7 @@ def build_cooccurrence_matrix(recipes, top_ingredients):
             pair_counts[(ingredient_a, ingredient_b)] += 1
             pair_counts[(ingredient_b, ingredient_a)] += 1
 
-    # On limite la matrice à 10 ingrédients pour garder un rendu lisible et mettre en avant la diagonale.
+    # Limit the matrix to 10 ingredients for readability and to emphasize the diagonal.
     matrix = pd.DataFrame(0, index=top_ingredients, columns=top_ingredients, dtype=int)
 
     for ingredient, count in ingredient_counts.items():

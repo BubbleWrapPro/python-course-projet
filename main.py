@@ -5,9 +5,10 @@ from zipfile import BadZipFile
 from graphs.histogramme import create_histogram
 from graphs.heatmap import create_heatmap
 from graphs.network import create_network_graph
+from scripts.anomalies import SHEET_NAMES, detect_anomalies
 from scripts.traitement_histogramme import prepare_histogram
 from scripts.traitement_heatmap import prepare_heatmap_data
-from scripts.tratiement_inventeurs import generate_network_csv_files
+from scripts.traitement_inventeurs import generate_network_csv_files
 
 st.set_page_config(page_title="Potion craft", layout="wide")
 st.title("Potion craft")
@@ -23,10 +24,12 @@ REQUIRED_CSVS = (
 
 # Generate the CSV files used by the charts before loading them.
 try:
+    # Try to generate the CSV files required to display the charts.
     prepare_histogram()
     prepare_heatmap_data()
     generate_network_csv_files()
 except (BadZipFile, IndexError, KeyError, OSError, TypeError, ValueError) as error:
+    # If CSV generation fails, check whether the required files already exist.
     missing_csvs = [path.name for path in REQUIRED_CSVS if not path.is_file()]
     if missing_csvs:
         st.error(
@@ -41,6 +44,7 @@ except (BadZipFile, IndexError, KeyError, OSError, TypeError, ValueError) as err
         )
         can_display_charts = True
 else:
+    # If CSV generation succeeds, check that all required files were created.
     missing_csvs = [path.name for path in REQUIRED_CSVS if not path.is_file()]
     if missing_csvs:
         st.error(
@@ -52,12 +56,36 @@ else:
         can_display_charts = True
 
 if can_display_charts:
-    # Affichage de l'histogramme
+    # Display the histogram.
     st.plotly_chart(create_histogram(), width="stretch")
 
-    # Affichage de la heatmap
+    # Display the heatmap.
     st.plotly_chart(create_heatmap(), width="stretch")
 
-    # Affichage du graphe réseau (sans filtres)
+    # Display the network graph (without filters).
     fig_network = create_network_graph()
     st.plotly_chart(fig_network, width='stretch')
+
+
+
+# Display the detected anomalies.
+st.divider()
+st.subheader("Anomalies détectées dans le classeur")
+anomalies = detect_anomalies()
+if anomalies.empty:
+    st.success("Aucune anomalie détectée.")
+else:
+    st.caption(f"{len(anomalies)} anomalie(s) recensée(s).")
+    # Show the anomaly count for each sheet, including sheets with no anomalies (fill_value=0).
+    counts_by_sheet = (
+        anomalies.groupby("Feuille")
+        .size()
+        .reindex(SHEET_NAMES, fill_value=0)
+        .rename("Nombre d'anomalies")
+        .rename_axis("Feuille")
+        .reset_index()
+    )
+    # Display the anomaly details and the counts for each sheet.
+    # st.dataframe creates an interactive table with sorting and search.
+    st.dataframe(counts_by_sheet, hide_index=True, width="stretch")
+    st.dataframe(anomalies, hide_index=True, width="stretch")

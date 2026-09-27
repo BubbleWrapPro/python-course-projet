@@ -10,7 +10,7 @@ DATA_PATH = ROOT / "data" / "processed_csv" / "ingredients_cooccurrence.csv"
 def create_heatmap():
     matrix = pd.read_csv(DATA_PATH, index_col=0)
 
-    # La diagonale montre la fréquence brute de chaque ingrédient ; les autres cases mesurent leurs croisements.
+    # The diagonal shows each ingredient's raw frequency; the other cells show co-occurrences.
     figure = go.Figure(
         data=go.Heatmap(
             z=matrix.values,
@@ -25,8 +25,7 @@ def create_heatmap():
         )
     )
 
-    # On met en avant la diagonale pour rendre la lecture plus agréable et plus claire à l'œil.
-    max_value = max(1, int(matrix.to_numpy().max()))
+    # Mark the diagonal to make the chart clearer and easier to read.
     for i in range(len(matrix.index)):
         figure.add_trace(
             go.Scatter(
@@ -39,6 +38,7 @@ def create_heatmap():
             )
         )
 
+    # Update the layout to make the chart more readable and visually appealing.
     figure.update_layout(
         title="Heatmap de cooccurrence des 10 ingrédients les plus utilisés",
         xaxis_title="Ingrédient",

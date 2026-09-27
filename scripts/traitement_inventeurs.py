@@ -20,7 +20,7 @@ def generate_network_csv_files():
     potion_links_dataframe = pd.read_excel(excel_workbook, sheet_name="potions-inventeurs")
     potion_links_dataframe = potion_links_dataframe.rename(columns=lambda column_name: column_name.strip())
 
-    # Build lineage nodes from the inventeurs list
+    # Build lineage nodes from the inventors list.
     lineage_names = sorted(inventors_dataframe["lignee"].dropna().unique().astype(str))
 
     network_nodes = []
@@ -39,7 +39,7 @@ def generate_network_csv_files():
             "parent": "",
         })
 
-    # Add special node for inventors without matching lineage
+    # Add a special node for inventors without a matching lineage.
     no_lineage_node_id = "lignee::Sans lignée"
     network_nodes.append({
         "id": no_lineage_node_id,
@@ -51,7 +51,7 @@ def generate_network_csv_files():
         "parent": "",
     })
 
-    # Index inventeurs by pseudo for matching
+    # Index inventors by pseudonym for matching.
     inventor_lookup_by_pseudo = {}
     for _, inventor_row in inventors_dataframe.iterrows():
         pseudo = str(inventor_row.get("pseudo")).strip()
@@ -91,7 +91,7 @@ def generate_network_csv_files():
 
 
     # Now add potions as leaf nodes connected to inventeur.
-    # If inventor in potions sheet doesn't match any pseudo, assign to 'Sans lignée' as inventor node created on-the-fly.
+    # If an inventor in the potions sheet matches no pseudonym, create an inventor node under the no-lineage group.
     dynamically_created_inventors = {}
 
     for _, potion_row in potion_links_dataframe.iterrows():
@@ -150,8 +150,8 @@ def generate_network_csv_files():
 
     network_nodes_df.to_csv(NODES_CSV, index=False)
     network_edges_df.to_csv(EDGES_CSV, index=False)
-    print(f"Wrote nodes -> {NODES_CSV}")
-    print(f"Wrote edges -> {EDGES_CSV}")
+    print(f"Saved: {NODES_CSV}")
+    print(f"Saved: {EDGES_CSV}")
 
 
 if __name__ == "__main__":
