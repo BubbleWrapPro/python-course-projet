@@ -4,6 +4,7 @@ from zipfile import BadZipFile
 
 from graphs.histogramme import create_histogram
 from graphs.heatmap import create_heatmap
+from graphs.kiviat import create_kiviat
 from graphs.network import create_network_graph
 from scripts.anomalies import SHEET_NAMES, detect_anomalies
 from scripts.traitement_histogramme import prepare_histogram
@@ -17,6 +18,7 @@ ROOT = Path(__file__).resolve().parent
 DATA_DIR = ROOT / "data" / "processed_csv"
 REQUIRED_CSVS = (
     DATA_DIR / "potions_plus_rentables.csv",
+    DATA_DIR / "nb_potions_par_competence.csv",
     DATA_DIR / "ingredients_cooccurrence.csv",
     DATA_DIR / "network_nodes.csv",
     DATA_DIR / "network_edges.csv",
@@ -61,6 +63,9 @@ if can_display_charts:
 
     # Display the heatmap.
     st.plotly_chart(create_heatmap(), width="stretch")
+
+    # Display the Kiviat chart.
+    st.plotly_chart(create_kiviat(), width="stretch")
 
     # Display the network graph (without filters).
     fig_network = create_network_graph()

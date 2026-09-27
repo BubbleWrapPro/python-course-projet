@@ -1,11 +1,11 @@
-potion,type_magie,prix_vente,cout_fabrication,benefice
-Potion de détection faussée,Noire,2365,53.57,2311.43
-Huile de ténèbres,Blanche,1777,58.53,1718.47
-Potion de pacte infernal,Rouge,1518,49.52,1468.48
-Potion de soins légers,Verte,1522,63.3,1458.7
-Potion d'armure de mage,Blanche,1274,73.41,1200.59
-Potion de résistances aux énergies destructives,Bleue,1226,36.27,1189.73
-Potion de bouclier de la foi,Rouge,1180,29.06,1150.94
-Potion de rapetissement,Rouge,1133,16.35,1116.65
-Huile de pierre magique,Blanche,1163,69.68,1093.32
-Potion de communion avec la nature,Verte,1094,44.98,1049.02
+potion,type_magie,prix_vente,cout_fabrication,benefice,competences
+Potion de détection faussée,Noire,2365,53.57,2311.43,Diabolisme;Sorcellerie
+Huile de ténèbres,Blanche,1777,58.53,1718.47,Bienveillance;Soin
+Potion de pacte infernal,Rouge,1518,49.52,1468.48,Charisme;Diabolisme;Invocateur
+Potion de soins légers,Verte,1522,63.3,1458.7,Botanique;Soin
+Potion d'armure de mage,Blanche,1274,73.41,1200.59,Bienveillance;Soin
+Potion de résistances aux énergies destructives,Bleue,1226,36.27,1189.73,Bienveillance;Sorcellerie
+Potion de bouclier de la foi,Rouge,1180,29.06,1150.94,Charisme;Diabolisme;Invocateur
+Potion de rapetissement,Rouge,1133,16.35,1116.65,Charisme;Diabolisme;Invocateur
+Huile de pierre magique,Blanche,1163,69.68,1093.32,Bienveillance;Soin
+Potion de communion avec la nature,Verte,1094,44.98,1049.02,Botanique;Soin
