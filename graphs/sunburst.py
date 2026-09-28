@@ -12,9 +12,24 @@ def create_sunburst():
     Creates a sunburst chart visualizing the distribution of potions by type of magic and skill.
     """
     data = pd.read_csv(DATA_PATH)
+    total_potions = int(data["poids"].sum())
+    
+    # We add a dummy root row so that the sunburst has a central root circle containing the total number of potions.
+    root_df = pd.DataFrame({
+        "type_magie": ["Total"],
+        "competence": [f"{total_potions} potions"],
+        "potion": [""],
+        "poids": [total_potions]
+    })
+    
+    # Alternatively, using pandas concat to prepend or just setting path properly. 
+    # Actually, Plotly sunburst automatically creates a root node if we add a top-level category or if we format path.
+    # Let's add a constant root column to data.
+    data["total"] = f"{total_potions} potions."
+    
     figure = px.sunburst(
         data,
-        path=["type_magie", "competence", "potion"],
+        path=["total", "type_magie", "competence", "potion"],
         values="poids",
         color="type_magie",
         title="Répartition des potions par type de magie et compétence",
@@ -25,8 +40,9 @@ def create_sunburst():
             "Rouge": "#D9534F",
             "Pourpre": "#845EC2",
             "Bleue": "#4285C5",
+            f"{total_potions} potions.": "#FFFFFF"
         },
-        custom_data=["poids"],
+        custom_data=["poids"]
     )
     # Update the hover template to show the number of potions in each segment.
     figure.update_traces(
@@ -45,14 +61,18 @@ def create_sunburst():
         "Rouge": "#D9534F",
         "Pourpre": "#845EC2",
         "Bleue": "#4285C5",
+        f"{total_potions} potions.": "#FFFFFF"
     }
-    # Add invisible scatter traces for each magic type to create a legend.
+    # Add invisible scatter traces for each magic type to create a legend (excluding the root total).
     for magic, color in colors.items():
+        if magic.startswith("Total"):
+            continue
         figure.add_scatter(
             x=[None], y=[None], mode="markers", name=magic,
             marker=dict(size=11, color=color, line=dict(color="#777777", width=0.5)),
             legendgroup=magic, hoverinfo="skip"
         )
+    
     # Update layout for better appearance and legend positioning.
     figure.update_layout(
         template="plotly_white",
