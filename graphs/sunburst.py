@@ -2,6 +2,7 @@
 
 import pandas as pd
 import plotly.express as px
+from theme import THEME_COLORS, apply_plotly_theme
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "processed_csv" / "sunburst_potions.csv"
@@ -13,35 +14,20 @@ def create_sunburst():
     """
     data = pd.read_csv(DATA_PATH)
     total_potions = int(data["poids"].sum())
-    
-    # We add a dummy root row so that the sunburst has a central root circle containing the total number of potions.
-    root_df = pd.DataFrame({
-        "type_magie": ["Total"],
-        "competence": [f"{total_potions} potions"],
-        "potion": [""],
-        "poids": [total_potions]
-    })
-    
-    # Alternatively, using pandas concat to prepend or just setting path properly. 
-    # Actually, Plotly sunburst automatically creates a root node if we add a top-level category or if we format path.
-    # Let's add a constant root column to data.
+
+    # Add a constant root column to data.
     data["total"] = f"{total_potions} potions."
     
+    colors = dict(THEME_COLORS["magic"])
+    colors[f"{total_potions} potions."] = "#1A1829"
+
     figure = px.sunburst(
         data,
         path=["total", "type_magie", "competence", "potion"],
         values="poids",
         color="type_magie",
         title="Répartition des potions par type de magie et compétence",
-        color_discrete_map={
-            "Noire": "#303030",
-            "Blanche": "#E3E3E3",
-            "Verte": "#2E8B57",
-            "Rouge": "#D9534F",
-            "Pourpre": "#845EC2",
-            "Bleue": "#4285C5",
-            f"{total_potions} potions.": "#FFFFFF"
-        },
+        color_discrete_map=colors,
         custom_data=["poids"]
     )
     # Update the hover template to show the number of potions in each segment.
@@ -54,28 +40,15 @@ def create_sunburst():
         insidetextorientation="radial",
     )
     # Add an explicit color key because Plotly does not show a legend for sunbursts.
-    colors = {
-        "Noire": "#303030",
-        "Blanche": "#E3E3E3",
-        "Verte": "#2E8B57",
-        "Rouge": "#D9534F",
-        "Pourpre": "#845EC2",
-        "Bleue": "#4285C5",
-        f"{total_potions} potions.": "#FFFFFF"
-    }
-    # Add invisible scatter traces for each magic type to create a legend (excluding the root total).
-    for magic, color in colors.items():
-        if magic.startswith("Total"):
-            continue
+    for magic, color in THEME_COLORS["magic"].items():
         figure.add_scatter(
             x=[None], y=[None], mode="markers", name=magic,
-            marker=dict(size=11, color=color, line=dict(color="#777777", width=0.5)),
+            marker=dict(size=11, color=color, line=dict(color="#2E2A45", width=1)),
             legendgroup=magic, hoverinfo="skip"
         )
     
     # Update layout for better appearance and legend positioning.
     figure.update_layout(
-        template="plotly_white",
         height=750,
         margin=dict(t=80, l=20, r=20, b=85),
         xaxis=dict(visible=False),
@@ -90,9 +63,8 @@ def create_sunburst():
             bgcolor="rgba(0,0,0,0)"
         ),
     )
-    return figure
+    return apply_plotly_theme(figure)
 
 
 if __name__ == "__main__":
     create_sunburst().show()
-

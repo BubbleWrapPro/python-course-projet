@@ -2,6 +2,7 @@ from pathlib import Path
 
 import pandas as pd
 import plotly.graph_objects as go
+from theme import apply_plotly_theme
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "processed_csv" / "ingredients_cooccurrence.csv"
@@ -16,7 +17,13 @@ def create_heatmap():
             z=matrix.values,
             x=matrix.columns,
             y=matrix.index,
-            colorscale=[[0, "#F3F7FF"], [0.5, "#2BDE43"], [1, "#0A5624"]],
+            colorscale=[
+                [0.0, "#131826"],
+                [0.3, "#064E3B"],
+                [0.6, "#059669"],
+                [0.85, "#10B981"],
+                [1.0, "#34D399"],
+            ],
             hovertemplate="<b>%{y}</b> / <b>%{x}</b><br>Valeur: %{z}<extra></extra>",
             colorbar=dict(title="Fréquence\n/ cooccurrence"),
             zmin=0,
@@ -43,7 +50,6 @@ def create_heatmap():
         title="Heatmap de cooccurrence des 10 ingrédients les plus utilisés",
         xaxis_title="Ingrédient",
         yaxis_title="Ingrédient",
-        template="plotly_white",
         height=800,
         width=900,
         margin=dict(l=160, r=40, t=80, b=200),
@@ -51,7 +57,7 @@ def create_heatmap():
         yaxis=dict(autorange="reversed"),
     )
 
-    return figure
+    return apply_plotly_theme(figure)
 
 
 if __name__ == "__main__":
