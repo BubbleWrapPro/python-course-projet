@@ -65,14 +65,14 @@ if can_display_charts:
     # Display the histogram.
     st.plotly_chart(create_histogram(), width="stretch")
 
-    # Display the heatmap.
-    st.plotly_chart(create_heatmap(), width="stretch")
+    # Display the three-level potion sunburst.
+    st.plotly_chart(create_sunburst(), width="stretch")
 
     # Display the Kiviat chart.
     st.plotly_chart(create_kiviat(), width="stretch")
 
-    # Display the three-level potion sunburst.
-    st.plotly_chart(create_sunburst(), width="stretch")
+    # Display the heatmap.
+    st.plotly_chart(create_heatmap(), width="stretch")
 
     # Display the network graph (without filters).
     fig_network = create_network_graph()
